@@ -49,5 +49,13 @@ namespace SistemaAsistencias.Presentacion
             userControlPersonal.Dock = DockStyle.Fill;
             panelPadre.Controls.Add(userControlPersonal);
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            panelPadre.Controls.Clear();
+            UserControlUsuario userControlUsuario = new UserControlUsuario();
+            userControlUsuario.Dock = DockStyle.Fill;
+            panelPadre.Controls.Add(userControlUsuario);
+        }
     }
 }

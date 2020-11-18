@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace SistemaAsistencias.Logica
@@ -81,6 +79,66 @@ namespace SistemaAsistencias.Logica
                 e.Handled = true;
             }
             return null;
+        }
+
+        public enum DateInterval
+        {
+            Day,
+            DayOfYear,
+            Hour,
+            Minute,
+            Month,
+            Quarter,
+            Second,
+            Weekday,
+            WeekOfYear,
+            Year
+        }
+
+        public static long DateDiff(DateInterval intervalType, DateTime fechaEntrada, DateTime fechaSalida)
+        {
+            switch (intervalType)
+            {
+                case DateInterval.Day:
+                case DateInterval.DayOfYear:
+                    TimeSpan spanForDays = fechaSalida - fechaEntrada;
+                    return (long)spanForDays.TotalDays;
+                case DateInterval.Hour:
+                    TimeSpan spanForHours = fechaSalida - fechaEntrada;
+                    return (long)spanForHours.TotalHours;
+                case DateInterval.Minute:
+                    TimeSpan spanForMinutes = fechaSalida - fechaEntrada;
+                    return (long)spanForMinutes.TotalMinutes;
+                case DateInterval.Month:
+                    return ((fechaSalida.Year - fechaEntrada.Year) * 12) + (fechaSalida.Month - fechaEntrada.Month);
+                case DateInterval.Quarter:
+                    long fechaEntradaQuarter = (long)Math.Ceiling(fechaEntrada.Month / 3.0);
+                    long fechaSalidaQuarter = (long)Math.Ceiling(fechaSalida.Month / 3.0);
+                    return (4 * (fechaSalida.Year - fechaEntrada.Year)) + fechaSalidaQuarter - fechaEntradaQuarter;
+                case DateInterval.Second:
+                    TimeSpan spanForSeconds = fechaSalida - fechaEntrada;
+                    return (long)spanForSeconds.TotalSeconds;
+                case DateInterval.Weekday:
+                    TimeSpan spanForWeekdays = fechaSalida - fechaEntrada;
+                    return (long)(spanForWeekdays.TotalDays / 7.0);
+                case DateInterval.WeekOfYear:
+                    DateTime fechaEntradaModified = fechaEntrada;
+                    DateTime fechaSalidaModified = fechaSalida;
+                    while (fechaSalidaModified.DayOfWeek != DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek)
+                    {
+                        fechaSalidaModified = fechaSalidaModified.AddDays(-1);
+                    }
+                    while (fechaEntradaModified.DayOfWeek != DateTimeFormatInfo.CurrentInfo.FirstDayOfWeek)
+                    {
+                        fechaEntradaModified = fechaEntradaModified.AddDays(-1);
+                    }
+                    TimeSpan spanForWeekOfYear = fechaSalidaModified - fechaEntradaModified;
+                    return (long)(spanForWeekOfYear.TotalDays / 7.0);
+                case DateInterval.Year:
+                    return fechaSalida.Year - fechaEntrada.Year;
+                default:
+                    return 0;
+            }
         }
     }
 }
