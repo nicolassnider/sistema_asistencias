@@ -51,12 +51,34 @@
     <Compile Include="Datos\DAsistencia.cs" />
     <Compile Include="Datos\DCargo.cs" />
     <Compile Include="Datos\DModulo.cs" />
+    <Compile Include="Datos\DPermit.cs" />
     <Compile Include="Datos\DPersonal.cs" />
+    <Compile Include="Datos\DUsuario.cs" />
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\LAsistencia.cs" />
     <Compile Include="Logica\LCargo.cs" />
     <Compile Include="Logica\LModulo.cs" />
+    <Compile Include="Logica\LPermit.cs" />
     <Compile Include="Logica\LPersonal.cs" />
+    <Compile Include="Logica\LUsuario.cs" />
+    <Compile Include="Presentacion\AsistenteInstalacion\ConexionRemota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\ConexionRemota.Designer.cs">
+      <DependentUpon>ConexionRemota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\EleccionServidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\EleccionServidor.Designer.cs">
+      <DependentUpon>EleccionServidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\InstalacionBd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\AsistenteInstalacion\InstalacionBd.Designer.cs">
+      <DependentUpon>InstalacionBd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ControlRegistro.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +90,12 @@
     </Compile>
     <Compile Include="Presentacion\FormTomarAsistencia.Designer.cs">
       <DependentUpon>FormTomarAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -89,11 +117,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\AsistenteInstalacion\ConexionRemota.resx">
+      <DependentUpon>ConexionRemota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AsistenteInstalacion\EleccionServidor.resx">
+      <DependentUpon>EleccionServidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AsistenteInstalacion\InstalacionBd.resx">
+      <DependentUpon>InstalacionBd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ControlRegistro.resx">
       <DependentUpon>ControlRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormTomarAsistencia.resx">
       <DependentUpon>FormTomarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

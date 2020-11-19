@@ -9,21 +9,21 @@ namespace SistemaAsistencias.Datos
     {
         public void MostrarModulos(ref DataTable dt)
         {
-            try
-            {
-                CONEXIONMAESTRA.open();
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Modulo",CONEXIONMAESTRA.connection);
-                da.Fill(dt);
-            }
-            catch (Exception ex)
-            {
+			try
+			{
+				CONEXIONMAESTRA.open();
+				SqlDataAdapter da = new SqlDataAdapter("Select * from Modulo", CONEXIONMAESTRA.connection);
+				da.Fill(dt);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.StackTrace);
 
-                MessageBox.Show(ex.StackTrace);
-            }
-            finally
-            {
-                CONEXIONMAESTRA.close();
-            }
-        }
+			}
+			finally
+			{
+				CONEXIONMAESTRA.close();
+			}
+		}
     }
 }

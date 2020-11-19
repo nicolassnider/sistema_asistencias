@@ -104,10 +104,7 @@ namespace SistemaAsistencias.Presentacion
 
             funcion.BuscarCargos(ref dt, txtCargo.Text);
             dataListadoCargos.DataSource = dt;
-            Bases.DesignDtv(ref dataListadoCargos);
-            dataListadoCargos.Columns[1].Visible = false;
-            dataListadoCargos.Columns[3].Visible = false;
-            dataListadoCargos.Visible = true;
+            string a = "";
 
         }
 
