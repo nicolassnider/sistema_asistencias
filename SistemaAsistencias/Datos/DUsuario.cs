@@ -83,7 +83,7 @@ namespace SistemaAsistencias.Datos
 				CONEXIONMAESTRA.close();
 				Indicador = "Correcto";
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 
 				Indicador = "Incorrecto";

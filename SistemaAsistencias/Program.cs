@@ -17,7 +17,7 @@ namespace SistemaAsistencias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Presentacion.Login frm = new Presentacion.Login();
+            Login frm = new Login();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();
             Application.Run();

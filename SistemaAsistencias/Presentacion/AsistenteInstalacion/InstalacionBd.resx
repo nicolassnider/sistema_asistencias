@@ -117,4 +117,604 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtCrear_procedimientos.Text" xml:space="preserve">
+    <value>USE [master]
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [SistemaAsistencias].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [SistemaAsistencias] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [SistemaAsistencias] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [SistemaAsistencias] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [SistemaAsistencias] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET TRUSTWORTHY ON 
+GO
+ALTER DATABASE [SistemaAsistencias] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [SistemaAsistencias] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET RECOVERY FULL 
+GO
+ALTER DATABASE [SistemaAsistencias] SET  MULTI_USER 
+GO
+ALTER DATABASE [SistemaAsistencias] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [SistemaAsistencias] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [SistemaAsistencias] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [SistemaAsistencias] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [SistemaAsistencias] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'SistemaAsistencias', N'ON'
+GO
+ALTER DATABASE [SistemaAsistencias] SET QUERY_STORE = OFF
+GO
+USE [SistemaAsistencias]
+GO
+/****** Object:  Table [dbo].[Asistencia]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Asistencia](
+	[IdAsistencia] [int] IDENTITY(1,1) NOT NULL,
+	[id_personal] [int] NULL,
+	[FechaEntrada] [datetime] NULL,
+	[FechaSalida] [datetime] NULL,
+	[Estado] [varchar](50) NULL,
+	[Horas] [numeric](18, 2) NULL,
+	[Observacion] [varchar](max) NULL,
+ CONSTRAINT [PK_Asistencia] PRIMARY KEY CLUSTERED 
+(
+	[IdAsistencia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cargo]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cargo](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Cargo] [varchar](max) NULL,
+	[SueldoPorHora] [numeric](18, 2) NULL,
+ CONSTRAINT [PK_Cargo] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Modulo]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Modulo](
+	[IdModulo] [int] IDENTITY(1,1) NOT NULL,
+	[Modulo] [varchar](max) NULL,
+ CONSTRAINT [PK_Modulo] PRIMARY KEY CLUSTERED 
+(
+	[IdModulo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permit]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permit](
+	[IdPermiso] [int] IDENTITY(1,1) NOT NULL,
+	[idModulo] [int] NULL,
+	[idUsuario] [int] NULL,
+ CONSTRAINT [PK_Permit] PRIMARY KEY CLUSTERED 
+(
+	[IdPermiso] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Personal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Personal](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombres] [varchar](max) NULL,
+	[Identificacion] [varchar](max) NULL,
+	[Pais] [varchar](max) NULL,
+	[id_cargo] [int] NULL,
+	[SueldoPorHora] [numeric](18, 2) NULL,
+	[Estado] [varchar](max) NULL,
+	[Codigo] [varchar](max) NULL,
+ CONSTRAINT [PK_Personal] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[NombresApellidos] [varchar](50) NULL,
+	[Login] [varchar](50) NULL,
+	[Password] [varchar](50) NULL,
+	[Icono] [image] NULL,
+	[Estado] [varchar](50) NULL,
+ CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Asistencia]  WITH CHECK ADD  CONSTRAINT [FK_Asistencia_Personal] FOREIGN KEY([id_personal])
+REFERENCES [dbo].[Personal] ([Id])
+GO
+ALTER TABLE [dbo].[Asistencia] CHECK CONSTRAINT [FK_Asistencia_Personal]
+GO
+ALTER TABLE [dbo].[Permit]  WITH CHECK ADD  CONSTRAINT [FK_Permit_Usuario] FOREIGN KEY([idUsuario])
+REFERENCES [dbo].[Usuario] ([IdUsuario])
+GO
+ALTER TABLE [dbo].[Permit] CHECK CONSTRAINT [FK_Permit_Usuario]
+GO
+ALTER TABLE [dbo].[Personal]  WITH CHECK ADD  CONSTRAINT [FK_Personal_Cargo] FOREIGN KEY([id_cargo])
+REFERENCES [dbo].[Cargo] ([Id])
+GO
+ALTER TABLE [dbo].[Personal] CHECK CONSTRAINT [FK_Personal_Cargo]
+GO
+/****** Object:  StoredProcedure [dbo].[BuscarAsistenciaId]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[BuscarAsistenciaId]
+
+@id_personal int
+
+as 
+
+select * from Asistencia
+where id_personal=@id_personal and Asistencia.Estado like 'ENTRADA'
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[BuscarCargos]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[BuscarCargos]
+@buscador varchar(50)
+
+as
+
+select Id, Cargo, SueldoPorHora from Cargo
+where Cargo like  '%' + @buscador + '%'
+ 
+GO
+/****** Object:  StoredProcedure [dbo].[BuscarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[BuscarPersonal]
+
+@desde int,
+@hasta int,
+@buscador varchar(50)
+
+as
+
+Set Nocount On;
+
+Select Id,Nombres,Identificacion,SueldoPorHora,Cargo,id_cargo,Estado,Codigo,Pais 
+from
+(Select Personal.Id, Nombres, Identificacion, Personal.SueldoPorHora, Cargo,Personal.id_cargo, Estado,Codigo,Pais,
+ROW_NUMBER() Over(Order By Personal.Id) 'Numero_de_fila'
+from Personal
+inner join Cargo on Cargo.Id=Personal.id_cargo) as Paginado
+
+where (Paginado.Numero_de_fila &gt;= @desde and Paginado.Numero_de_fila&lt;=@hasta)
+and(Nombres + Identificacion like '%'+@buscador + '%')
+GO
+/****** Object:  StoredProcedure [dbo].[BuscarPersonalIdentidad]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[BuscarPersonalIdentidad]
+
+@buscador varchar(50)
+
+as
+
+select * from Personal
+where Identificacion like @buscador
+GO
+/****** Object:  StoredProcedure [dbo].[ConfirmarSalida]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[ConfirmarSalida]
+@id_personal int,
+@fechaSalida DATETIME,
+@horas NUMERIC(18,2)
+
+as
+
+update Asistencia set
+FechaSalida = @fechaSalida,
+Horas = @horas,
+Estado='SALIDA'
+
+where id_personal = @id_personal and Estado like 'ENTRADA'
+GO
+/****** Object:  StoredProcedure [dbo].[EditarCargo]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[EditarCargo]
+@id int,
+@cargo varchar(max),
+@sueldoPorHora numeric(18,2)
+
+as
+
+if Exists(Select Cargo from Cargo where Cargo=@cargo and Id&lt;&gt; @id)
+Raiserror ('Ya existe registro con esta identificación',16,1)
+else
+Update Cargo set
+Cargo=@cargo,
+SueldoPorHora=@sueldoPorHora
+where Id = @id
+
+GO
+/****** Object:  StoredProcedure [dbo].[EditarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[EditarPersonal]
+@id int,
+@nombres varchar(max),
+@identificacion varchar(max),
+@pais varchar(max),
+@id_cargo int,
+@sueldoPorHora numeric(18,2)
+
+as
+
+if Exists(Select Identificacion from Personal where Identificacion=@identificacion and Id&lt;&gt; @id)
+Raiserror ('Ya existe registro con esta identificación',16,1)
+else
+Update Personal set
+Nombres=@nombres,
+Identificacion=@identificacion,
+Pais=@pais,
+id_cargo=@id_cargo,
+SueldoPorHora=@sueldoPorHora
+where Id = @id
+
+GO
+/****** Object:  StoredProcedure [dbo].[EliminarCargo]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[EliminarCargo]
+@id int
+as
+Delete Cargo 
+where Id = @id
+GO
+/****** Object:  StoredProcedure [dbo].[EliminarPermit]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROC [dbo].[EliminarPermit]
+@idUsuario As int
+
+As
+DELETE FROM Permiso
+where idUsuario=@idUsuario
+GO
+/****** Object:  StoredProcedure [dbo].[EliminarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[EliminarPersonal]
+@id int
+as
+Update Personal set Estado='INACTIVO'
+where Id = @id
+GO
+/****** Object:  StoredProcedure [dbo].[InsertarAsistencia]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[InsertarAsistencia]
+
+@id_personal int,
+@fechaEntrada datetime,
+@fechaSalida datetime,
+@estado varchar(50),
+@horas numeric(18,2),
+@observacion varchar(MAX)
+
+as
+
+INSERT INTO Asistencia
+           (id_personal
+           ,FechaEntrada
+           ,FechaSalida
+           ,Estado
+           ,Horas
+           ,Observacion)
+     VALUES
+           (@id_personal
+           ,@fechaEntrada
+           ,@fechaSalida
+           ,@estado
+           ,@horas
+           ,@observacion)
+GO
+/****** Object:  StoredProcedure [dbo].[InsertarCargo]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[InsertarCargo]
+
+@cargo varchar(max),
+@sueldoPorHora numeric(18,2)
+
+as
+
+if Exists (select Cargo from Cargo where Cargo=@cargo)
+Raiserror('Ya existe un registro con esta identificación',16,1)
+else
+Insert into Cargo
+values(@cargo,
+@sueldoPorHora)
+GO
+/****** Object:  StoredProcedure [dbo].[InsertarPermisos]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[InsertarPermisos]
+@idModulo As int,
+@idUsuario As int
+As
+INSERT INTO Permit
+Values (
+@idModulo,
+@idUsuario)
+GO
+/****** Object:  StoredProcedure [dbo].[InsertarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[InsertarPersonal]
+
+@nombres varchar(max),
+@identificacion varchar(max),
+@pais varchar(max),
+@id_cargo int,
+@sueldoPorHora numeric(18,2)
+
+as
+
+declare @estado varchar(max)
+declare @codigo varchar(max)
+declare @id_personal int
+
+set @estado='ACTIVO'
+set @codigo='-'
+
+if Exists (select Identificacion from Personal where Identificacion=@identificacion)
+Raiserror('Ya existe un registro con esta identificación',16,1)
+else
+Insert into Personal
+values(@nombres,
+@identificacion,
+@pais,
+@id_cargo,
+@sueldoPorHora,
+@estado,
+@codigo)
+
+Select @id_personal = SCOPE_IDENTITY()
+
+Update Personal set codigo=@id_personal where Id=@id_personal
+GO
+/****** Object:  StoredProcedure [dbo].[InsertarUsuario]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[InsertarUsuario]
+
+@nombresApellidos varchar(50)
+,@login varchar(50)
+,@password varchar(50)
+,@icono  image
+,@estado varchar(50)
+
+as
+
+if EXISTS(SELECT Login from Usuario where Login = @login)
+RAISERROR ('Ya existe un usuario con este nombre, intente con otro nuevamente',16,1)
+else
+
+INSERT INTO [dbo].[Usuario]
+           ([NombresApellidos]
+           ,[Login]
+           ,[Password]
+           ,[Icono]
+           ,[Estado])
+     VALUES
+           (@nombresApellidos
+		   ,@login
+		   ,@password
+		   ,@icono
+		   ,@estado)
+GO
+/****** Object:  StoredProcedure [dbo].[MostrarPermit]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[MostrarPermit]
+@idUsuario int
+
+as
+
+select IdModulo from Permit where IdUsuario=@idUsuario
+GO
+/****** Object:  StoredProcedure [dbo].[MostrarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[MostrarPersonal]
+
+@desde int,
+@hasta int
+
+as
+
+Set Nocount On;
+
+Select Id,Nombres,Identificacion,SueldoPorHora,Cargo,id_cargo,Estado,Codigo,Pais
+from
+(Select Personal.Id, Nombres, Identificacion, Personal.SueldoPorHora, Cargo,Personal.id_cargo, Estado,Codigo,Pais,
+ROW_NUMBER() Over(Order By Personal.Id) 'Numero_de_fila'
+from Personal
+inner join Cargo on Cargo.Id=Personal.id_cargo) as Paginado
+
+where (Paginado.Numero_de_fila &gt;= @desde and Paginado.Numero_de_fila&lt;=@hasta)
+GO
+/****** Object:  StoredProcedure [dbo].[MostrarUsuarios]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[MostrarUsuarios]
+
+as
+
+select * from Usuario
+GO
+/****** Object:  StoredProcedure [dbo].[ObtenerIdUsuario]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[ObtenerIdUsuario]
+@login varchar(50)
+as
+select IdUsuario from Usuario 
+where Login=@Login 
+GO
+/****** Object:  StoredProcedure [dbo].[RestaurarPersonal]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[RestaurarPersonal]
+
+@id int
+
+as
+
+update Personal set Estado='ACTIVO' where Id=@id
+GO
+/****** Object:  StoredProcedure [dbo].[validar_usuario]    Script Date: 22/11/2020 23:39:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[validar_usuario]
+@password varchar(50),
+@login varchar(50)
+as
+select * from Usuarios 
+where Password = @password and Login =@login and Estado ='ACTIVO'
+GO
+USE [master]
+GO
+ALTER DATABASE [SistemaAsistencias] SET  READ_WRITE 
+GO</value>
+  </data>
+  <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="timer3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>104, 17</value>
+  </metadata>
+  <metadata name="timer4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>191, 17</value>
+  </metadata>
+  <metadata name="TimerCRARINI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>278, 17</value>
+  </metadata>
 </root>

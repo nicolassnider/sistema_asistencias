@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaAsistencias.Datos;
+using SistemaAsistencias.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,8 @@ namespace SistemaAsistencias.Presentacion
         {
             InitializeComponent();
         }
+        public int idUsuario;
+        public string login;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -30,6 +34,32 @@ namespace SistemaAsistencias.Presentacion
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             panelBienvenida.Dock = DockStyle.Fill; 
+        }
+
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DPermit funcion = new DPermit();
+            LPermit parametros = new LPermit();
+            parametros.IdUsuario = idUsuario;
+
+            funcion.MostrarPermits(ref dt, parametros);
+            btnConsultas.Enabled = false;
+            btnPersonal.Enabled = false;
+            btnRegistro.Enabled = false;
+            btnUsuarios.Enabled = false;
+
+            btnRestaurar.Enabled = false;
+            btnRespaldo.Enabled = false;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string modulo = Convert.ToString(row["Modulo"]);
+                if (true)
+                {
+
+                }
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)

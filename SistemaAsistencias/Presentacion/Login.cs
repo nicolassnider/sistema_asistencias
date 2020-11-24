@@ -1,5 +1,6 @@
 ﻿using SistemaAsistencias.Datos;
 using SistemaAsistencias.Logica;
+using SistemaAsistencias.Presentacion.AsistenteInstalacion;
 //using SistemaAsistencias.Presentacion.AsistenteInstalacion;
 using System;
 using System.Collections.Generic;
@@ -32,14 +33,32 @@ namespace SistemaAsistencias.Presentacion
             VerificarConexion();
             if (Indicador == "Correcto")
             {
-                DibujarUsuarios();
+                MostrarUsuarios();
+                if (Contador==0)
+                {
+                    Dispose();
+                    UsuarioPrincipal frm = new UsuarioPrincipal();
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    DibujarUsuarios();
+                }                
             }
             else
             {
                 Dispose();
-                //ElecccionServidor frm = new ElecccionServidor();
-                //frm.ShowDialog();
+                ElecccionServidor frm = new ElecccionServidor();
+                frm.ShowDialog();
             }
+        }
+
+        private void MostrarUsuarios()
+        {
+            DataTable dt = new DataTable();
+            DUsuario funcion = new DUsuario();
+            funcion.MostrarUsuarios(ref dt);
+            Contador = dt.Rows.Count;
         }
 
 
@@ -114,6 +133,7 @@ namespace SistemaAsistencias.Presentacion
         private void mieventoLabel(object sender, EventArgs e)
         {
             Usuario = ((Label)sender).Text;
+            icono.Image = ((PictureBox)sender).Image;
             MostrarPanelPass();
         }
         private void MostrarPanelPass()
@@ -138,6 +158,9 @@ namespace SistemaAsistencias.Presentacion
             {
                 Dispose();
                 MenuPrincipal frm = new MenuPrincipal();
+                frm.idUsuario = Idusuario;
+                frm.login = Usuario;
+                frm.icono.Image = icono.Image; 
                 frm.ShowDialog();
             }
         }

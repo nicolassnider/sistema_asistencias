@@ -58,7 +58,7 @@
             this.btnPersonal = new System.Windows.Forms.Button();
             this.btnConsultas = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -67,6 +67,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panelPadre = new System.Windows.Forms.Panel();
+            this.icono = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -77,9 +78,11 @@
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panelBienvenida.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panelPadre.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -418,7 +421,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblLogin);
             this.panel3.Controls.Add(this.panel24);
             this.panel3.Controls.Add(this.panel20);
             this.panel3.Controls.Add(this.panel2);
@@ -428,20 +431,21 @@
             this.panel3.Size = new System.Drawing.Size(259, 27);
             this.panel3.TabIndex = 0;
             // 
-            // label2
+            // lblLogin
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(126, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 27);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Sistema Asistencias";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblLogin.Location = new System.Drawing.Point(126, 0);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(133, 27);
+            this.lblLogin.TabIndex = 4;
+            this.lblLogin.Text = "Sistema Asistencias";
+            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel24
             // 
+            this.panel24.Controls.Add(this.icono);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel24.Location = new System.Drawing.Point(60, 0);
             this.panel24.Name = "panel24";
@@ -510,6 +514,16 @@
             this.panelPadre.Size = new System.Drawing.Size(926, 605);
             this.panelPadre.TabIndex = 3;
             // 
+            // icono
+            // 
+            this.icono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.icono.Location = new System.Drawing.Point(0, 0);
+            this.icono.Name = "icono";
+            this.icono.Size = new System.Drawing.Size(66, 27);
+            this.icono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.icono.TabIndex = 0;
+            this.icono.TabStop = false;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,9 +546,11 @@
             this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
             this.panelBienvenida.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panelPadre.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,7 +588,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panelBienvenida;
@@ -580,5 +595,7 @@
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panelPadre;
+        public System.Windows.Forms.PictureBox icono;
+        public System.Windows.Forms.Label lblLogin;
     }
 }

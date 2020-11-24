@@ -55,16 +55,19 @@
             this.PanelUsuarios = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label8 = new System.Windows.Forms.Label();
+            this.icono = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).BeginInit();
             this.PanelIngreso_de_contraseña.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.icono);
             this.panel1.Controls.Add(this.Label66);
             this.panel1.Controls.Add(this.PictureBox7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -88,7 +91,7 @@
             // PictureBox7
             // 
             this.PictureBox7.Image = global::SistemaAsistencias.Properties.Resources.MonoOrus2;
-            this.PictureBox7.Location = new System.Drawing.Point(110, 8);
+            this.PictureBox7.Location = new System.Drawing.Point(225, 3);
             this.PictureBox7.Name = "PictureBox7";
             this.PictureBox7.Size = new System.Drawing.Size(71, 75);
             this.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -489,6 +492,15 @@
             this.Label8.Text = "¿Quien esta Iniciando Sesion?";
             this.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // icono
+            // 
+            this.icono.Location = new System.Drawing.Point(560, 28);
+            this.icono.Name = "icono";
+            this.icono.Size = new System.Drawing.Size(100, 50);
+            this.icono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.icono.TabIndex = 617;
+            this.icono.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,6 +523,7 @@
             this.panel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelUsuarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -543,5 +556,6 @@
         private System.Windows.Forms.Panel PanelUsuarios;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal System.Windows.Forms.Label Label8;
+        private System.Windows.Forms.PictureBox icono;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElecccionServidor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Label66 = new System.Windows.Forms.Label();
             this.PictureBox7 = new System.Windows.Forms.PictureBox();
@@ -40,10 +41,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).BeginInit();
             this.Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,11 +83,12 @@
             // 
             // Panel4
             // 
-            this.Panel4.Controls.Add(this.Label4);
+            this.Panel4.Controls.Add(this.Label1);
             this.Panel4.Controls.Add(this.BtnRemoto);
             this.Panel4.Controls.Add(this.BtnPrincipal);
+            this.Panel4.Controls.Add(this.Label4);
             this.Panel4.Controls.Add(this.Label9);
-            this.Panel4.Controls.Add(this.Label1);
+            this.Panel4.Controls.Add(this.pictureBox2);
             this.Panel4.Controls.Add(this.panel2);
             this.Panel4.Controls.Add(this.panel3);
             this.Panel4.Controls.Add(this.PictureBox1);
@@ -115,7 +119,7 @@
             this.BtnRemoto.ForeColor = System.Drawing.Color.White;
             this.BtnRemoto.Location = new System.Drawing.Point(53, 317);
             this.BtnRemoto.Name = "BtnRemoto";
-            this.BtnRemoto.Size = new System.Drawing.Size(347, 84);
+            this.BtnRemoto.Size = new System.Drawing.Size(310, 84);
             this.BtnRemoto.TabIndex = 609;
             this.BtnRemoto.Text = "Punto de Control";
             this.BtnRemoto.UseVisualStyleBackColor = false;
@@ -183,7 +187,17 @@
             this.PictureBox1.TabIndex = 604;
             this.PictureBox1.TabStop = false;
             // 
-            // EleccionServidor
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(312, 50);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(472, 339);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 610;
+            this.pictureBox2.TabStop = false;
+            // 
+            // ElecccionServidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,7 +205,7 @@
             this.ClientSize = new System.Drawing.Size(1201, 615);
             this.Controls.Add(this.Panel4);
             this.Controls.Add(this.panel1);
-            this.Name = "EleccionServidor";
+            this.Name = "ElecccionServidor";
             this.Text = "ElecccionServidor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -199,6 +213,7 @@
             this.Panel4.ResumeLayout(false);
             this.Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,5 +232,6 @@
         internal System.Windows.Forms.Panel panel2;
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.PictureBox PictureBox1;
+        internal System.Windows.Forms.PictureBox pictureBox2;
     }
 }
