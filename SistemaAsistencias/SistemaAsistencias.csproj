@@ -71,6 +71,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=13.0.19.116, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=13.0.19.116, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\CONEXIONMAESTRA.cs" />
@@ -137,11 +143,23 @@
     <Compile Include="Presentacion\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Reportes\ReportAsistencias.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Reportes\ReportAsistencias.Designer.cs">
+      <DependentUpon>ReportAsistencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\UserControlPersonal.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentacion\UserControlPersonal.Designer.cs">
       <DependentUpon>UserControlPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\UserControlPrePlanilla.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\UserControlPrePlanilla.Designer.cs">
+      <DependentUpon>UserControlPrePlanilla.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\UserControlUsuario.cs">
       <SubType>UserControl</SubType>
@@ -175,12 +193,19 @@
     <EmbeddedResource Include="Presentacion\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Reportes\ReportAsistencias.resx">
+      <DependentUpon>ReportAsistencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\UserControlPersonal.resx">
       <DependentUpon>UserControlPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\UserControlPrePlanilla.resx">
+      <DependentUpon>UserControlPrePlanilla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\UserControlUsuario.resx">
       <DependentUpon>UserControlUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

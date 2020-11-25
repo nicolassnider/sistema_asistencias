@@ -40,6 +40,8 @@
             this.panel = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dataListadoUsuario = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelRegistro = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -229,6 +231,9 @@
             this.dataListadoUsuario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.dataListadoUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListadoUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListadoUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Editar,
+            this.Eliminar});
             this.dataListadoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataListadoUsuario.Location = new System.Drawing.Point(0, 94);
             this.dataListadoUsuario.Name = "dataListadoUsuario";
@@ -242,6 +247,23 @@
             this.dataListadoUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListadoUsuario.Size = new System.Drawing.Size(1050, 596);
             this.dataListadoUsuario.TabIndex = 6;
+            this.dataListadoUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListadoUsuario_CellClick);
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = global::SistemaAsistencias.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::SistemaAsistencias.Properties.Resources.Eliminar;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // panelRegistro
             // 
@@ -729,5 +751,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
         private System.Windows.Forms.OpenFileDialog dlg;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }
