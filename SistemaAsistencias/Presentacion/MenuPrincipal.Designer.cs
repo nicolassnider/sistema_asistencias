@@ -60,6 +60,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblLogin = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.icono = new System.Windows.Forms.PictureBox();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelBienvenida = new System.Windows.Forms.Panel();
@@ -67,7 +68,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panelPadre = new System.Windows.Forms.Panel();
-            this.icono = new System.Windows.Forms.PictureBox();
+            this.dlg = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -79,10 +80,10 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).BeginInit();
             this.panelBienvenida.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panelPadre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icono)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -236,6 +237,7 @@
             this.btnRespaldo.TabIndex = 2;
             this.btnRespaldo.Text = "Respaldos";
             this.btnRespaldo.UseVisualStyleBackColor = false;
+            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
             // 
             // panel15
             // 
@@ -280,6 +282,7 @@
             this.btnRestaurar.TabIndex = 2;
             this.btnRestaurar.Text = "Restaurar BD";
             this.btnRestaurar.UseVisualStyleBackColor = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // panel12
             // 
@@ -369,7 +372,7 @@
             this.btnRegistro.TabIndex = 2;
             this.btnRegistro.Text = "Registro";
             this.btnRegistro.UseVisualStyleBackColor = false;
-            this.btnRegistro.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
             // panel7
             // 
@@ -417,7 +420,7 @@
             this.btnConsultas.TabIndex = 0;
             this.btnConsultas.Text = "Pre planilla";
             this.btnConsultas.UseVisualStyleBackColor = false;
-            this.btnConsultas.Click += new System.EventHandler(this.button1_Click);
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
             // 
             // panel3
             // 
@@ -451,6 +454,16 @@
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(66, 27);
             this.panel24.TabIndex = 3;
+            // 
+            // icono
+            // 
+            this.icono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.icono.Location = new System.Drawing.Point(0, 0);
+            this.icono.Name = "icono";
+            this.icono.Size = new System.Drawing.Size(66, 27);
+            this.icono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.icono.TabIndex = 0;
+            this.icono.TabStop = false;
             // 
             // panel20
             // 
@@ -514,15 +527,9 @@
             this.panelPadre.Size = new System.Drawing.Size(926, 605);
             this.panelPadre.TabIndex = 3;
             // 
-            // icono
+            // dlg
             // 
-            this.icono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.icono.Location = new System.Drawing.Point(0, 0);
-            this.icono.Name = "icono";
-            this.icono.Size = new System.Drawing.Size(66, 27);
-            this.icono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.icono.TabIndex = 0;
-            this.icono.TabStop = false;
+            this.dlg.FileName = "openFileDialog1";
             // 
             // MenuPrincipal
             // 
@@ -547,10 +554,10 @@
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icono)).EndInit();
             this.panelBienvenida.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panelPadre.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.icono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,5 +604,6 @@
         private System.Windows.Forms.Panel panelPadre;
         public System.Windows.Forms.PictureBox icono;
         public System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.OpenFileDialog dlg;
     }
 }

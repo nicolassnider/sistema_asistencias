@@ -93,7 +93,7 @@ namespace SistemaAsistencias.Datos
             try
             {
                 CONEXIONMAESTRA.open();
-                SqlDataAdapter da = new SqlDataAdapter("mostrar_asistencias_diarias", CONEXIONMAESTRA.connection);
+                SqlDataAdapter da = new SqlDataAdapter("MostrarAsistenciasDiarias", CONEXIONMAESTRA.connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@desde", desde);
                 da.SelectCommand.Parameters.AddWithValue("@hasta", hasta);

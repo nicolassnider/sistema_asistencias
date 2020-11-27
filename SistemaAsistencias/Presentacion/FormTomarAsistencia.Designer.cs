@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnIniciarSesión = new System.Windows.Forms.Button();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -85,7 +85,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnIniciarSesión);
+            this.panel3.Controls.Add(this.btnIniciarSesion);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -94,21 +94,22 @@
             this.panel3.Size = new System.Drawing.Size(233, 99);
             this.panel3.TabIndex = 1;
             // 
-            // btnIniciarSesión
+            // btnIniciarSesion
             // 
-            this.btnIniciarSesión.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.btnIniciarSesión.BackgroundImage = global::SistemaAsistencias.Properties.Resources.naranja;
-            this.btnIniciarSesión.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnIniciarSesión.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIniciarSesión.FlatAppearance.BorderSize = 0;
-            this.btnIniciarSesión.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIniciarSesión.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesión.Location = new System.Drawing.Point(0, 27);
-            this.btnIniciarSesión.Name = "btnIniciarSesión";
-            this.btnIniciarSesión.Size = new System.Drawing.Size(208, 72);
-            this.btnIniciarSesión.TabIndex = 7;
-            this.btnIniciarSesión.Text = "Iniciar sesión";
-            this.btnIniciarSesión.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.btnIniciarSesion.BackgroundImage = global::SistemaAsistencias.Properties.Resources.naranja;
+            this.btnIniciarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIniciarSesion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarSesion.Location = new System.Drawing.Point(0, 27);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(208, 72);
+            this.btnIniciarSesion.TabIndex = 7;
+            this.btnIniciarSesion.Text = "Iniciar sesión";
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // panel5
             // 
@@ -425,7 +426,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnIniciarSesión;
+        private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel10;

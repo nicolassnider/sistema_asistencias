@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,21 +22,15 @@ namespace SistemaAsistencias.Presentacion
         }
         public int idUsuario;
         public string login;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+        public string baseDeDatos = "SistemaAsistencias";
+        public string servidor = @".\SQLEXPRESS";
+        public string ruta;
+        
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             panelBienvenida.Dock = DockStyle.Fill;
             ValidarPermisos();
+            lblLogin.Text = login;
         }
 
         private void ValidarPermisos()
@@ -111,6 +107,106 @@ namespace SistemaAsistencias.Presentacion
             UserControlUsuario userControlUsuario = new UserControlUsuario();
             userControlUsuario.Dock = DockStyle.Fill;
             panelPadre.Controls.Add(userControlUsuario);
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            panelPadre.Controls.Clear();
+            UserControlPrePlanilla userControlPrePlanilla = new UserControlPrePlanilla();
+            userControlPrePlanilla.Dock = DockStyle.Fill;
+            panelPadre.Controls.Add(userControlPrePlanilla);
+        }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            FormTomarAsistencia frm = new FormTomarAsistencia();
+            frm.ShowDialog();
+        }
+
+        private void btnRespaldo_Click(object sender, EventArgs e)
+        {
+            panelPadre.Controls.Clear();
+            CopiaBD control = new CopiaBD();
+            control.Dock = DockStyle.Fill;
+            panelPadre.Controls.Add(control);
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            RestaurarBDExpress();
+        }
+
+        private void RestaurarBDExpress()
+        {
+            dlg.InitialDirectory = "";
+            dlg.Filter = "Backup" + baseDeDatos + "|*.bak";
+            dlg.FilterIndex = 2;
+            dlg.Title = "Cargador de Backup";
+            if (dlg.ShowDialog()==DialogResult.OK)
+            {
+                ruta = Path.GetFullPath(dlg.FileName);
+                DialogResult pregunta = MessageBox.Show("¿Restaurar base de datos?", "Base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (pregunta==DialogResult.Yes)
+                {
+                    SqlConnection connection = new SqlConnection("Server=" + servidor + ";database=master; integrated security=yes");
+                    try
+                    {
+                        
+                        connection.Open();
+                        string Proceso = "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'" + baseDeDatos + "' USE [master] ALTER DATABASE [" + baseDeDatos + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE DROP DATABASE [" + baseDeDatos + "] RESTORE DATABASE " + baseDeDatos + " FROM DISK = N'" + ruta + "' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10";
+                        SqlCommand borrarRestaurar = new SqlCommand(Proceso, connection);
+                        borrarRestaurar.ExecuteNonQuery();
+                        MessageBox.Show("Base de datos restaurada satisfactoriamente. Reiniciar aplicación", "Restauración de base de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    finally
+                    {
+                        if (connection.State == ConnectionState.Open)
+                        {
+                            connection.Close();
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+
+        private void RestaurarBDNoExpress()
+        {
+            servidor = ".";
+            SqlConnection connection = new SqlConnection("Server=" + servidor + ";database=master; integrated security=yes");
+            try
+            {
+                connection.Open();
+                string Proceso = "EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'" + baseDeDatos + "' USE [master] ALTER DATABASE [" + baseDeDatos + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE DROP DATABASE [" + baseDeDatos + "] RESTORE DATABASE " + baseDeDatos + " FROM DISK = N'" + ruta + "' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10";
+                SqlCommand BorraRestaura = new SqlCommand(Proceso, connection);
+                BorraRestaura.ExecuteNonQuery();
+                MessageBox.Show("La base de datos ha sido restaurada satisfactoriamente! Vuelve a Iniciar El Aplicativo", "Restauración de base de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Dispose();
+
+
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+
+            }
         }
     }
 }

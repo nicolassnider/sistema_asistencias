@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>SistemaAsistencias.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -77,11 +81,14 @@
     <Reference Include="Telerik.ReportViewer.WebForms, Version=13.0.19.116, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=13.0.19.116, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\CONEXIONMAESTRA.cs" />
+    <Compile Include="Datos\CopiaBD.cs" />
     <Compile Include="Datos\DAsistencia.cs" />
     <Compile Include="Datos\DCargo.cs" />
+    <Compile Include="Datos\DCopiaBD.cs" />
     <Compile Include="Datos\DModulo.cs" />
     <Compile Include="Datos\DPermit.cs" />
     <Compile Include="Datos\DPersonal.cs" />
@@ -91,6 +98,7 @@
     <Compile Include="Logica\Encryptacion.cs" />
     <Compile Include="Logica\LAsistencia.cs" />
     <Compile Include="Logica\LCargo.cs" />
+    <Compile Include="Logica\LCopiaBD.cs" />
     <Compile Include="Logica\LModulo.cs" />
     <Compile Include="Logica\LPermit.cs" />
     <Compile Include="Logica\LPersonal.cs" />
@@ -124,6 +132,12 @@
     </Compile>
     <Compile Include="Presentacion\ControlRegistro.Designer.cs">
       <DependentUpon>ControlRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\CopiaBD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CopiaBD.Designer.cs">
+      <DependentUpon>CopiaBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FormTomarAsistencia.cs">
       <SubType>Form</SubType>
@@ -184,6 +198,9 @@
     <EmbeddedResource Include="Presentacion\ControlRegistro.resx">
       <DependentUpon>ControlRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CopiaBD.resx">
+      <DependentUpon>CopiaBD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormTomarAsistencia.resx">
       <DependentUpon>FormTomarAsistencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +243,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SistemaAsistencias.manifest" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

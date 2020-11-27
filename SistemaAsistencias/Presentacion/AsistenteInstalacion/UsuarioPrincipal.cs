@@ -59,6 +59,12 @@ namespace SistemaAsistencias.Presentacion.AsistenteInstalacion
             }
         }
 
+        private void InsertarCopiaBD()
+        {
+            DCopiaBD funcion = new DCopiaBD();
+            funcion.InsertarCopiasBd();
+        }
+
         private void InsertarUsuarioDefault()
         {
             LUsuario parametros = new LUsuario();
@@ -72,6 +78,7 @@ namespace SistemaAsistencias.Presentacion.AsistenteInstalacion
             parametros.icono = ms.GetBuffer();
             if (funcion.InsertarUsuarios(parametros))
             {
+                InsertarCopiaBD();
                 InsertarModulos();
                 OBtenerIdUsuario();
                 InsertarPermisos();

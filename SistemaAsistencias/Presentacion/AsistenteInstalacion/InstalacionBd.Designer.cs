@@ -133,6 +133,7 @@
             // 
             // Panel2
             // 
+            this.Panel2.Controls.Add(this.Panel4);
             this.Panel2.Controls.Add(this.Panel9);
             this.Panel2.Controls.Add(this.btnInstalarServidor);
             this.Panel2.Location = new System.Drawing.Point(197, 96);
@@ -164,6 +165,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -194,9 +196,9 @@
             this.Panel4.Controls.Add(this.Label1);
             this.Panel4.Controls.Add(this.PictureBox1);
             this.Panel4.Controls.Add(this.Panel5);
-            this.Panel4.Location = new System.Drawing.Point(197, 203);
+            this.Panel4.Location = new System.Drawing.Point(16, 171);
             this.Panel4.Name = "Panel4";
-            this.Panel4.Size = new System.Drawing.Size(482, 556);
+            this.Panel4.Size = new System.Drawing.Size(482, 651);
             this.Panel4.TabIndex = 618;
             this.Panel4.Visible = false;
             // 
@@ -204,9 +206,10 @@
             // 
             this.PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
             this.PictureBox2.Location = new System.Drawing.Point(0, 307);
             this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(482, 249);
+            this.PictureBox2.Size = new System.Drawing.Size(482, 344);
             this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox2.TabIndex = 617;
             this.PictureBox2.TabStop = false;
@@ -309,6 +312,7 @@
             // 
             this.PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox1.Image")));
             this.PictureBox1.Location = new System.Drawing.Point(0, 13);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(482, 57);
@@ -355,7 +359,8 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(134, 20);
             this.txtusuario.TabIndex = 635;
-            this.txtusuario.Text = "sa";
+            this.txtusuario.Text = "orus";
+            this.txtusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
             // 
             // Label15
             // 
@@ -386,6 +391,7 @@
             this.txtCrearUsuarioDb.Name = "txtCrearUsuarioDb";
             this.txtCrearUsuarioDb.Size = new System.Drawing.Size(227, 262);
             this.txtCrearUsuarioDb.TabIndex = 629;
+            this.txtCrearUsuarioDb.Text = resources.GetString("txtCrearUsuarioDb.Text");
             // 
             // txtArgumentosini
             // 
@@ -394,7 +400,7 @@
             this.txtArgumentosini.Name = "txtArgumentosini";
             this.txtArgumentosini.Size = new System.Drawing.Size(446, 216);
             this.txtArgumentosini.TabIndex = 589;
-            this.txtArgumentosini.Text = "";
+            this.txtArgumentosini.Text = resources.GetString("txtArgumentosini.Text");
             // 
             // Panel10
             // 
@@ -553,7 +559,7 @@
             this.txtnombre_scrypt.Name = "txtnombre_scrypt";
             this.txtnombre_scrypt.Size = new System.Drawing.Size(133, 20);
             this.txtnombre_scrypt.TabIndex = 621;
-            this.txtnombre_scrypt.Text = "SistemaAsistencias";
+            this.txtnombre_scrypt.Text = "ScriptORUS";
             // 
             // TXTbasededatos
             // 
@@ -561,7 +567,7 @@
             this.TXTbasededatos.Name = "TXTbasededatos";
             this.TXTbasededatos.Size = new System.Drawing.Size(134, 20);
             this.TXTbasededatos.TabIndex = 621;
-            this.TXTbasededatos.Text = "SistemaAsistencias";
+            this.TXTbasededatos.Text = "ORUS369";
             // 
             // lblcontraseña
             // 
@@ -569,7 +575,7 @@
             this.lblcontraseña.Name = "lblcontraseña";
             this.lblcontraseña.Size = new System.Drawing.Size(134, 20);
             this.lblcontraseña.TabIndex = 621;
-            this.lblcontraseña.Text = "SOULIT01";
+            this.lblcontraseña.Text = "orus369";
             // 
             // lblnombredeservicio
             // 
@@ -578,7 +584,7 @@
             this.lblnombredeservicio.Name = "lblnombredeservicio";
             this.lblnombredeservicio.Size = new System.Drawing.Size(134, 20);
             this.lblnombredeservicio.TabIndex = 621;
-            this.lblnombredeservicio.Text = "SOULIT";
+            this.lblnombredeservicio.Text = "SQLEXPRESS";
             // 
             // Label11
             // 
@@ -641,6 +647,7 @@
             // timer4
             // 
             this.timer4.Interval = 10;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
             // TimerCRARINI
             // 
@@ -652,12 +659,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1438, 744);
-            this.Controls.Add(this.Panel4);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InstalacionBd";
-            this.Text = "InstalacionBd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.InstalacionBd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
